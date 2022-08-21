@@ -10,7 +10,7 @@ const fetchCovidStat = createAsyncThunk('stat/fetchCovidStat', async () => {
 
 const initialState = {
   covidStat: {},
-  loading: 'idle',
+  loading: true,
 };
 
 const covidStatSlice = createSlice({
@@ -20,27 +20,18 @@ const covidStatSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchCovidStat.pending,
-      (state, { meta: { requestStatus } }) => {
-        state.loading = requestStatus;
-      }
-    );
+    builder.addCase(fetchCovidStat.pending, (state) => {
+      state.loading = true;
+    });
 
-    builder.addCase(
-      fetchCovidStat.fulfilled,
-      (state, { payload, meta: { requestStatus } }) => {
-        state.covidStat = payload.data;
-        state.loading = requestStatus;
-      }
-    );
+    builder.addCase(fetchCovidStat.fulfilled, (state, { payload }) => {
+      state.covidStat = payload.data;
+      state.loading = false;
+    });
 
-    builder.addCase(
-      fetchCovidStat.rejected,
-      (state, { meta: { requestStatus } }) => {
-        state.loading = requestStatus;
-      }
-    );
+    builder.addCase(fetchCovidStat.rejected, (state) => {
+      state.loading = false;
+    });
   },
 });
 

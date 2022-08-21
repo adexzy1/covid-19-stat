@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Analytic from '../components/Analytic/Analytic';
 import Header from '../components/header/Header';
+import Loading from '../components/loading/Loading';
 import StateStats from '../components/stateStats/StateStats';
 import { fetchCovidStat } from '../Redux/slice/covidStatSlice';
 
@@ -15,8 +16,9 @@ const Home = () => {
   return (
     <div>
       <Header />
+      <Loading />
       <>
-        {loading === 'fulfilled' && (
+        {!loading && (
           <>
             <Analytic />
             <StateStats />

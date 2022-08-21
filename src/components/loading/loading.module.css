@@ -1,0 +1,36 @@
+.container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: red;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  border: 1.5rem solid rgba(0, 0, 0, 0.5);
+  border-top: 1.5rem solid var(--accent);
+  padding: 5rem;
+  border-radius: 50%;
+  animation: loading-spinner 0.75s ease-in-out infinite;
+}
+
+.hide_loading {
+  clip-path: circle(0% at 0% 0%);
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0turn);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
