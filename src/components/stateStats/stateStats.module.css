@@ -1,5 +1,5 @@
 .container {
-  margin-block: 5rem;
+  margin-block: 20vh;
 }
 
 .head_wrapper {
@@ -24,9 +24,10 @@
 }
 
 .head_wrapper > h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--primary-color);
   text-transform: uppercase;
+  text-align: center;
 }
 
 .stat_card_wrapper {
@@ -34,18 +35,4 @@
   gap: 3rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 27rem), 1fr));
   margin-bottom: 5rem;
-}
-
-@media only screen and (min-width: 768px) {
-  .head_wrapper {
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
-    justify-content: space-between;
-  }
-
-  .head_wrapper div > input {
-    margin-top: 0;
-    width: 25rem;
-  }
 }
