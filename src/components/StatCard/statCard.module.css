@@ -1,0 +1,25 @@
+.container {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  color: var(--primary-color);
+  border-radius: 1rem;
+}
+
+.container h5 {
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.container p {
+  color: var(--accent);
+  font-size: 1.4rem;
+  padding-block: 0.5rem;
+  font-weight: 600;
+}
+
+.container p > span {
+  color: var(--primary-color);
+  font-weight: 300;
+  padding-left: 0.5rem;
+}
